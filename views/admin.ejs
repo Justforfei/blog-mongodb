@@ -1,0 +1,54 @@
+<h2>This is a Page for Admin</h2>
+	<h3>用户列表</h3>
+	<div class="filter">
+		<form method="post" enctype="multipart/form-data">
+			<input type="text" name="username">
+			<button type="submit">查询</button>
+		</form>
+	</div>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>用户名</th>
+				<th>性别</th>
+				<th>备注</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% usersInfo.forEach(function(userInfo){ %>
+				<tr>
+					<td><img src="/img/<%= userInfo.avatar %>" width="50px"></td>
+					<td><%= userInfo.name %></td>
+					<td><%= userInfo.gender %></td>
+					<td><%= userInfo.bio %></td>
+				</tr>
+			<% }) %>
+		</tbody>
+	</table>
+
+	<h3>文章列表</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>文章名</th>
+				<th>创建日期</th>
+				<th>作者</th>
+				<th>pv</th>
+				<th>备注</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% posts.forEach(function(post){ %>
+				<tr>
+					<td><%= post.title %></td>
+					<td><%= post.created_at %></td>
+					<td><%= post.author.name %></td>
+					<td><%= post.pv %></td>
+					<td><%= post.content %></td>
+				</tr>
+			<% }) %>	
+		</tbody>
+	</table>		
+<%- include('footer') %>
