@@ -3,8 +3,8 @@
     <div class="four wide column"></div>
 
     <div class="eight wide column">
-      <a href="/posts"><h1><%= user.name %>'s Blog</h1></a>
-      <p><%= user.bio %></p>
+      <a href="/posts"><h1><%= user ? user.name : 'Blog Collection' %>'s Blog</h1></a>
+      <p><%= user ? user.bio : 'This what world looks like~' %></p>
     </div>
   </div>
 </div>
